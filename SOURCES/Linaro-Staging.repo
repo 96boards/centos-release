@@ -1,0 +1,4 @@
+[linaro-staging]
+name = Linaro Staging packages for CentOS 7
+baseurl = http://repo.linaro.org/rpm/linaro-staging/centos-7/repo
+gpgcheck=0
