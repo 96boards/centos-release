@@ -31,7 +31,8 @@ Source4:	EULA
 Source100:	CentOS-Base.repo
 
 # Repository GPG keys
-Source101:	RPM-GPG-KEY-CentOS-7.%{_arch}
+Source101:	RPM-GPG-KEY-CentOS-7
+Source102:	RPM-GPG-KEY-CentOS-7.%{_arch}
 
 %description
 %{product_family} release files
@@ -86,6 +87,7 @@ echo >> %{buildroot}/etc/issue
 # copy GPG keys
 mkdir -p -m 755 %{buildroot}/etc/pki/rpm-gpg
 install -m 644 %{SOURCE101} %{buildroot}/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+install -m 644 %{SOURCE102} %{buildroot}/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7-aarch64
 
 # copy yum repos
 mkdir -p -m 755 %{buildroot}/etc/yum.repos.d
