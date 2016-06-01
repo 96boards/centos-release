@@ -13,7 +13,7 @@
 
 Name:           centos-release
 Version:        %{base_release_version}
-Release:        %{centos_rel}%{?dist}.2.8.1.altarch
+Release:        %{centos_rel}%{?dist}.2.8.2.altarch
 Summary:        %{product_family} release file
 Group:          System Environment/Base
 License:        GPLv2
@@ -35,7 +35,8 @@ Source101:	RPM-GPG-KEY-CentOS-7
 Source102:	RPM-GPG-KEY-CentOS-7.%{_arch}
 
 # Linaro Repository
-Source200:	Linaro-Staging.repo
+Source200:	Linaro-Overlay.repo
+Source201:	Linaro-Staging.repo
 
 %description
 %{product_family} release files
@@ -96,6 +97,7 @@ install -m 644 %{SOURCE102} %{buildroot}/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7-aa
 mkdir -p -m 755 %{buildroot}/etc/yum.repos.d
 install -m 644 %{SOURCE100} %{buildroot}/etc/yum.repos.d
 install -m 644 %{SOURCE200} %{buildroot}/etc/yum.repos.d
+install -m 644 %{SOURCE201} %{buildroot}/etc/yum.repos.d
 
 
 # set up the dist tag macros

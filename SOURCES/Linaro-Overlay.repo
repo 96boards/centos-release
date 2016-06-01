@@ -1,0 +1,4 @@
+[linaro-overlay]
+name = Linaro Overlay packages for CentOS 7
+baseurl = http://repo.linaro.org/rpm/linaro-overlay/centos-7/repo
+gpgcheck=0
