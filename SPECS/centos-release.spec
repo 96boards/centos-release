@@ -6,14 +6,14 @@
 %define base_release_version 7
 %define full_release_version 7
 %define dist_release_version 7
-%define upstream_rel 7.2
-%define centos_rel 2.1603
+%define upstream_rel 7.3
+%define centos_rel 3.1611
 #define beta Beta
 %define dist .el%{dist_release_version}.centos
 
 Name:           centos-release
 Version:        %{base_release_version}
-Release:        %{centos_rel}%{?dist}.2.8.1.altarch
+Release:        %{centos_rel}%{?dist}.1.altarch
 Summary:        %{product_family} release file
 Group:          System Environment/Base
 License:        GPLv2
@@ -29,10 +29,11 @@ Source4:	EULA
 
 # Repository Sources
 Source100:	CentOS-Base.repo
+Source101:	CentOS-Sources.repo
 
 # Repository GPG keys
-Source101:	RPM-GPG-KEY-CentOS-7
-Source102:	RPM-GPG-KEY-CentOS-7.%{_arch}
+Source102:	RPM-GPG-KEY-CentOS-7
+Source103:	RPM-GPG-KEY-CentOS-7.%{_arch}
 
 # Linaro Repository
 Source200:	Linaro-Overlay.repo
@@ -89,12 +90,13 @@ echo >> %{buildroot}/etc/issue
 
 # copy GPG keys
 mkdir -p -m 755 %{buildroot}/etc/pki/rpm-gpg
-install -m 644 %{SOURCE101} %{buildroot}/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-install -m 644 %{SOURCE102} %{buildroot}/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7-aarch64
+install -m 644 %{SOURCE102} %{buildroot}/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+install -m 644 %{SOURCE103} %{buildroot}/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7-aarch64
 
 # copy yum repos
 mkdir -p -m 755 %{buildroot}/etc/yum.repos.d
 install -m 644 %{SOURCE100} %{buildroot}/etc/yum.repos.d
+install -m 644 %{SOURCE101} %{buildroot}/etc/yum.repos.d
 install -m 644 %{SOURCE200} %{buildroot}/etc/yum.repos.d
 
 
